@@ -19,7 +19,6 @@ Modified by : Abhishek Padalkar
 This softawre is modified version of original software provided by Travis DeWolf.
 Modifications are made such that the software can be easily integrated in ROS.  
 '''
-
 from dmp import DMPs
 import numpy as np
 

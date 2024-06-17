@@ -20,6 +20,12 @@ This softawre is modified version of original software provided by Travis DeWolf
 Modifications are made such that the software can be easily integrated in ROS.  
 '''
 import numpy as np
+import sys
+import os
+
+# Get the current directory
+current_directory = "/home/sukhvansh/DMP/src/ros_dmp/pydmps"
+sys.path.append(current_directory)
 
 from cs import CanonicalSystem
 

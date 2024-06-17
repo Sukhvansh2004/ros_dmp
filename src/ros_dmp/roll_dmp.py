@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import numpy as np
 import yaml
 import os.path
@@ -37,7 +38,7 @@ class RollDmp():
         file_name: Path of the weight file
         '''
         with open(file_name) as f:
-            loadeddict = yaml.load(f)
+            loadeddict = yaml.safe_load(f)
         x = loadeddict.get('x')
         y = loadeddict.get('y')
         z = loadeddict.get('z')

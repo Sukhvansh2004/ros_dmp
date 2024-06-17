@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
 import numpy as np
 from ros_dmp import RollDmp
@@ -84,7 +84,7 @@ class GenerateMotionClass:
         self.trajectory_pub.publish(cartesian_trajectory)
         self.path_pub.publish(path)
         response = GenerateMotionResponse()
-        rospy.loginfo("Motion generated and published on respective toopics")
+        rospy.loginfo("Motion generated and published on respective topics")
         response.result = "success"
         response.cart_traj = cartesian_trajectory
         return response
