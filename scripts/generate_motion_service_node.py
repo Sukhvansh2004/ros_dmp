@@ -15,10 +15,10 @@ class GenerateMotionClass:
 
         '''
         rospy.init_node("generate_motion_service_node")
-        rospy.Service("generate_motion_service", GenerateMotion, self.generate_motion)
+        rospy.Service("generate_motion_service", GenerateMotion, self.generate_motion) # type: ignore
         rospy.loginfo("Started Motion Generation Service")
         # Publishers
-        self.trajectory_pub = rospy.Publisher('~cartesian_trajectory', CartesianTrajectory, queue_size=1)
+        self.trajectory_pub = rospy.Publisher('~cartesian_trajectory', CartesianTrajectory, queue_size=1) # type: ignore
         self.path_pub = rospy.Publisher('~cartesian_path', Path, queue_size=1)
 
     def generate_motion(self, req):
@@ -44,7 +44,7 @@ class GenerateMotionClass:
         pos, vel, acc = dmp.roll(goal_pose, initial_pose, req.tau)
 
         # Publish cartesian trajectory
-        cartesian_trajectory = CartesianTrajectory()
+        cartesian_trajectory = CartesianTrajectory() # type: ignore
         cartesian_trajectory.header.frame_id = "base_link"
         path = Path()
         path.header.frame_id = "base_link"
@@ -59,7 +59,7 @@ class GenerateMotionClass:
             pose.orientation.z = z
             pose.orientation.w = w
             
-            cartesian_state = CartesianState()
+            cartesian_state = CartesianState() # type: ignore
             cartesian_state.pose = pose
             pose_stamped = PoseStamped()
             pose_stamped.pose = pose
@@ -83,7 +83,7 @@ class GenerateMotionClass:
         
         self.trajectory_pub.publish(cartesian_trajectory)
         self.path_pub.publish(path)
-        response = GenerateMotionResponse()
+        response = GenerateMotionResponse() # type: ignore
         rospy.loginfo("Motion generated and published on respective topics")
         response.result = "success"
         response.cart_traj = cartesian_trajectory

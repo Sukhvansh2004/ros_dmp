@@ -20,7 +20,7 @@ class LearnDmp:
         '''
         rospy.init_node("learn_dynamic_motion_primitive_service")
         service_ = rospy.Service('learn_dynamic_motion_primitive_service',
-                                 LearnDMP, self.learn_dmp_handler)
+                                 LearnDMP, self.learn_dmp_handler) # type: ignore
         rospy.loginfo("Started learn DMP service")
 
         # Publishers
@@ -53,7 +53,7 @@ class LearnDmp:
         self.learn_dmp(trajectory, req.output_weight_file_name, req.n_dmps, req.n_bfs)
         rospy.loginfo("Successfully learned the motion primitive")
         # Return response
-        response = LearnDMPResponse()
+        response = LearnDMPResponse() # type: ignore
         response.result = self.result
         return response
 

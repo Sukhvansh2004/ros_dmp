@@ -7,7 +7,7 @@ from ros_dmp.srv import *
 if __name__ == "__main__":
 
     rospy.init_node('learn_dmp_service_test_client')
-    req = LearnDMPRequest()
+    req = LearnDMPRequest() # type: ignore
 
     # Generating a hypothetical trajectory
     x = np.linspace(0, 5)
@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
     # Call the service
     try:
-        service_client = rospy.ServiceProxy('/learn_dynamic_motion_primitive_service', LearnDMP)
+        service_client = rospy.ServiceProxy('/learn_dynamic_motion_primitive_service', LearnDMP) # type: ignore
         rospy.loginfo(service_client(req))
     except :
         rospy.loginfo("Service call failed")

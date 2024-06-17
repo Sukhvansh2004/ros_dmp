@@ -8,7 +8,7 @@ import os
 if __name__ == "__main__":
 
     rospy.init_node('generate_motion_service_test_client')
-    req = GenerateMotionRequest()
+    req = GenerateMotionRequest() # type: ignore
 
     # Compose request message
     folder = rospy.get_param('/learn_dmp_service_node/weights_file_path', '../../data/weights/')
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     req.initial_pose.header.frame_id = "base_link"
 
     try:
-        service_client = rospy.ServiceProxy('/generate_motion_service', GenerateMotion)
+        service_client = rospy.ServiceProxy('/generate_motion_service', GenerateMotion) # type: ignore
         rospy.loginfo(service_client(req))
     except :
         rospy.loginfo("Service call failed")
