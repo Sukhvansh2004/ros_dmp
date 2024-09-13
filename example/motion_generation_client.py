@@ -16,15 +16,22 @@ if __name__ == "__main__":
     req.tau = 1.0
     req.dt = 0.01
     req.goal_pose = PoseStamped()
-    req.goal_pose.header.frame_id = "base_link"
-    req.goal_pose.pose.position.x = 5.0
-    req.goal_pose.pose.position.y = 5.0
-    req.goal_pose.pose.position.z = 0.5
+    req.goal_pose.header.frame_id = "map"
+    req.goal_pose.pose.position.x = 4.0
+    req.goal_pose.pose.position.y = 4.0
+    req.goal_pose.pose.position.z = 1.0
     req.goal_pose.pose.orientation.x = 1.0
     req.goal_pose.pose.orientation.y = 1.0
     req.goal_pose.pose.orientation.z = 1.0
     req.goal_pose.pose.orientation.w = 1.0
-    req.initial_pose.header.frame_id = "base_link"
+    req.initial_pose.header.frame_id = "map"
+    req.initial_pose.pose.position.x = 0.0
+    req.initial_pose.pose.position.y = 0.0
+    req.initial_pose.pose.position.z = 0.0
+    req.initial_pose.pose.orientation.x = 1.0
+    req.initial_pose.pose.orientation.y = 1.0
+    req.initial_pose.pose.orientation.z = 1.0
+    req.initial_pose.pose.orientation.w = 1.0
 
     try:
         service_client = rospy.ServiceProxy('/generate_motion_service', GenerateMotion) # type: ignore

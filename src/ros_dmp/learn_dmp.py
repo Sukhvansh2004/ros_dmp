@@ -98,7 +98,7 @@ class LearnDmp:
 
         # Publish Imitated Path
         imitated_path = Path()
-        imitated_path.header.frame_id = "/base_link"
+        imitated_path.header.frame_id = "/map"
         for itr in range(pos.shape[0]):
             pose_stamped = PoseStamped()
             pose_stamped.pose.position.x = pos[itr, 0]
@@ -109,7 +109,7 @@ class LearnDmp:
 
         # Publish Demonstrated Path
         demonstrated_path = Path()
-        demonstrated_path.header.frame_id = "/base_link"
+        demonstrated_path.header.frame_id = "/map"
         for itr in range(demonstrated_trajectory.shape[1]):
             pose_stamped = PoseStamped()
             pose_stamped.pose.position.x = demonstrated_trajectory[0, itr]

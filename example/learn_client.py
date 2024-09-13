@@ -21,7 +21,7 @@ if __name__ == "__main__":
     o_w = np.linspace(0, 1)
 
     # Compose service request
-    req.header.frame_id = 'base_link'
+    req.header.frame_id = 'map'
     req.output_weight_file_name = 'example.yaml'
     req.dmp_name = 'square_wave'
     req.header.stamp = rospy.Time.now()
